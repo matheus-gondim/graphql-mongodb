@@ -28,4 +28,12 @@ export class LessonService {
       throw new InternalServerErrorException();
     }
   }
+
+  async getLesson(id: string): Promise<Lesson> {
+    try {
+      return await this.lessonRepository.findOne({ id });
+    } catch (error) {
+      throw new InternalServerErrorException();
+    }
+  }
 }
