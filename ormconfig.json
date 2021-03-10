@@ -1,0 +1,8 @@
+{
+  "type": "mongodb",
+  "url": "mongodb://localhost:27018/?readPreference=primary&appname=MongoDB%20Compass&ssl=false",
+  "synchronize": true,
+  "useUnifiedTopology": true,
+  "logging": true,
+  "entities": ["dist/**/*.entity.{js,ts}"]
+}

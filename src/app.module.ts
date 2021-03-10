@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Lesson } from './entities/lesson.entity';
 import { LessonModule } from './lesson/lesson.module';
 
 // autoSchemaFile => define onde os schemas seram salvos, se true, eles seram salvos na memoria
@@ -11,14 +10,7 @@ import { LessonModule } from './lesson/lesson.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mongodb',
-      url:
-        'mongodb://localhost:27018/?readPreference=primary&appname=MongoDB%20Compass&ssl=false',
-      synchronize: true,
-      useUnifiedTopology: true,
-      entities: [Lesson],
-    }),
+    TypeOrmModule.forRoot(),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
     }),
