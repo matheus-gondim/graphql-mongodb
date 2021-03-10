@@ -8,7 +8,8 @@ import { CreateLessionInput } from './dto/create-lession.input';
 @Injectable()
 export class LessonService {
   constructor(
-    @InjectRepository(Lesson) private lessonRepository: Repository<Lesson>,
+    @InjectRepository(Lesson)
+    private readonly lessonRepository: Repository<Lesson>,
   ) {}
 
   async createLesson(createLessionInput: CreateLessionInput): Promise<Lesson> {
