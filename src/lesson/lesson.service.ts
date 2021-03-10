@@ -34,4 +34,12 @@ export class LessonService {
       throw new InternalServerErrorException();
     }
   }
+
+  async getlessons(): Promise<Lesson[]> {
+    try {
+      return await this.lessonRepository.find();
+    } catch (error) {
+      throw new InternalServerErrorException();
+    }
+  }
 }
