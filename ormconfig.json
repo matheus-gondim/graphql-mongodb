@@ -4,5 +4,6 @@
   "synchronize": true,
   "useUnifiedTopology": true,
   "logging": true,
-  "entities": ["dist/**/entity/*.entity.{js,ts}"]
+  "entities": ["dist/**/entity/*.entity.{js,ts}"],
+  "database": "school"
 }
