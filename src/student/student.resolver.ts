@@ -9,8 +9,13 @@ export class StudentResolver {
   constructor(private readonly studentService: StudentService) {}
 
   @Query(() => StudentType)
-  async getStudent(@Args('id') id: string): Promise<Student> {
+  async student(@Args('id') id: string): Promise<Student> {
     return await this.studentService.getStudent(id);
+  }
+
+  @Query(() => [StudentType])
+  async students(): Promise<Student[]> {
+    return await this.studentService.getStudents();
   }
 
   @Mutation(() => StudentType)

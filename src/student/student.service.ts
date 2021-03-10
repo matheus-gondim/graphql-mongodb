@@ -37,4 +37,22 @@ export class StudentService {
       throw new InternalServerErrorException(error);
     }
   }
+
+  async getStudents(): Promise<Student[]> {
+    try {
+      return await this.studentRepository.find();
+    } catch (error) {
+      throw new InternalServerErrorException(error);
+    }
+  }
+
+  async getManyStudents(studentIds: string[]): Promise<Student[]> {
+    try {
+      return await this.studentRepository.find({
+        where: { id: { $in: studentIds } },
+      });
+    } catch (error) {
+      throw new InternalServerErrorException(error);
+    }
+  }
 }
