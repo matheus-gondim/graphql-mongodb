@@ -12,7 +12,9 @@ export class StudentService {
     private readonly studentRepository: Repository<Student>,
   ) {}
 
-  async createStudent(createStudentInput: CreateStudentInput) {
+  async createStudent(
+    createStudentInput: CreateStudentInput,
+  ): Promise<Student> {
     const { firstName, lastName } = createStudentInput;
 
     const student = this.studentRepository.create({
@@ -24,7 +26,15 @@ export class StudentService {
     try {
       return await this.studentRepository.save(student);
     } catch (error) {
-      throw new InternalServerErrorException();
+      throw new InternalServerErrorException(error);
+    }
+  }
+
+  async getStudent(id: string): Promise<Student> {
+    try {
+      return await this.studentRepository.findOne({ id });
+    } catch (error) {
+      throw new InternalServerErrorException(error);
     }
   }
 }
