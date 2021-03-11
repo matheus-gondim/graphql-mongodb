@@ -56,7 +56,7 @@ export class LessonService {
     const { lessonId, studentIds } = assignStudentToLessonInput;
 
     const lesson = await this.getLesson(lessonId);
-    lesson.students = [...lesson.students, ...studentIds];
+    lesson.students = lesson.students.concat(studentIds);
 
     return await this.saveLesson(lesson);
   }
